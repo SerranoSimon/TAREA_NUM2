@@ -1,3 +1,3 @@
 public interface Invitable {
-    public default void invitar(){}//por mientras
+    public void invitar(Invitacion invitacion);
 }
