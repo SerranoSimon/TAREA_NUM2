@@ -21,4 +21,11 @@ public class Empleado implements Invitable{
     public String getCorreo(){
         return correo;
     }
+
+    @Override
+    public void invitar( Reunion reunion) {
+        reunion.getListaInvitados().add(this);
+
+
+    }
 }

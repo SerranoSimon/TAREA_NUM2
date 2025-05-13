@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Departamento {
+public class Departamento implements Invitable {
     private String nombre;
     private ArrayList<Empleado> empleados =new ArrayList<>();
 
@@ -15,5 +15,12 @@ public class Departamento {
     }
     public int obtenerCantidadEmpleados() {
         return empleados.size();
+    }
+
+    @Override
+    public void invitar( Reunion reunion) {
+        for(Empleado e: empleados){
+            reunion.getListaInvitados().add(e);
+        }
     }
 }

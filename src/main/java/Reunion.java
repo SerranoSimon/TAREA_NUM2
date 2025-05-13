@@ -14,6 +14,7 @@ public abstract class Reunion {
         this.fecha=fecha;
         this.horaPrevista=horaPrevista;
         this.duracionPrevista=duracionPrevista;
+        this.invitados=new ArrayList<>();
         Invitacion invitacion= new Invitacion(this.horaPrevista);
 
     }
