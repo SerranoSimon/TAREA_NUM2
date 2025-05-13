@@ -8,6 +8,7 @@ public abstract class Reunion {
     private Duration duracionPrevista;
     private Instant horaInicio;
     private Instant horaFin;
+    private ArrayList<Empleado> invitados;
 
     public Reunion(LocalDate fecha, Instant horaPrevista, Duration duracionPrevista){
         this.fecha=fecha;
@@ -15,6 +16,9 @@ public abstract class Reunion {
         this.duracionPrevista=duracionPrevista;
         Invitacion invitacion= new Invitacion(this.horaPrevista);
 
+    }
+    public ArrayList<Empleado> getListaInvitados(){
+        return invitados;
     }
 }
 
