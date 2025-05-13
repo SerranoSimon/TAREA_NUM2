@@ -1,4 +1,6 @@
-public class Empleado implements Invitable{
+import java.time.Instant;
+
+public class Empleado implements Invitable, Asistible{
     private String id;
     private String apellidos;
     private String nombre;
@@ -26,6 +28,10 @@ public class Empleado implements Invitable{
     public void invitar(Invitacion invitacion) {
         invitacion.getListaDeInvitados().add(this);
 
+    }
 
+    @Override
+    public void asistir(Asistencia asistencia) {
+        asistencia.getListaDeAsistencia().add(this);
     }
 }

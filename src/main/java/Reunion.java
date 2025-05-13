@@ -9,6 +9,7 @@ public abstract class Reunion {
     private Instant horaInicio;
     private Instant horaFin;
     private Invitacion invitacion;
+    private Asistencia asistencia;
 
 
     public Reunion(LocalDate fecha, Instant horaPrevista, Duration duracionPrevista){
@@ -16,12 +17,15 @@ public abstract class Reunion {
         this.horaPrevista=horaPrevista;
         this.duracionPrevista=duracionPrevista;
         this.invitacion= new Invitacion(this.horaPrevista);
-        Asistencia asistencia=new Asistencia();
+        this.asistencia=new Asistencia();
 
 
     }
     public Invitacion getInvitacion(){
         return invitacion;
+    }
+    public Asistencia getAsistencia(){
+        return asistencia;
     }
 }
 

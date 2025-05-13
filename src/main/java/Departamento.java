@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Departamento implements Invitable {
+public class Departamento implements Invitable, Asistible{
     private String nombre;
     private ArrayList<Empleado> empleados =new ArrayList<>();
 
@@ -21,6 +21,13 @@ public class Departamento implements Invitable {
     public void invitar(Invitacion invitacion) {
         for(Empleado e: empleados){
             invitacion.getListaDeInvitados().add(e);
+        }
+    }
+
+    @Override
+    public void asistir(Asistencia asistencia) {
+        for(Empleado e: empleados){
+            asistencia.getListaDeAsistencia().add(e);
         }
     }
 }
