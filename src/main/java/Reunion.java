@@ -8,17 +8,13 @@ public abstract class Reunion {
     private Duration duracionPrevista;
     private Instant horaInicio;
     private Instant horaFin;
-    private ArrayList<Asistencia> asistentes;
-    private ArrayList<Invitacion> invitados;
 
-    public Reunion(LocalDate fecha, Instant horaPrevista, Duration duracionPrevista, ArrayList<Invitacion> invitados){
+    public Reunion(LocalDate fecha, Instant horaPrevista, Duration duracionPrevista){
         this.fecha=fecha;
         this.horaPrevista=horaPrevista;
         this.duracionPrevista=duracionPrevista;
-        this.invitados=invitados;
-    }
-    public ArrayList<Asistencia> obtenerAsistencia(){
-           return asistentes;
+        Invitacion invitacion= new Invitacion(this.horaPrevista);
+
     }
 }
 
