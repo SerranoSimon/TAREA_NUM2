@@ -31,7 +31,18 @@ public class Empleado implements Invitable, Asistible{
     }
 
     @Override
-    public void asistir(Asistencia asistencia) {
+    public void asistir(Asistencia asistencia, Instant horaLLegada) {
         asistencia.getListaDeAsistencia().add(this);
+        asistencia.setLlegada(horaLLegada);
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "id='" + id + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                '}';
     }
 }

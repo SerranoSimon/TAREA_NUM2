@@ -1,3 +1,4 @@
+import java.time.Instant;
 import java.util.ArrayList;
 
 public class Departamento implements Invitable, Asistible{
@@ -25,9 +26,16 @@ public class Departamento implements Invitable, Asistible{
     }
 
     @Override
-    public void asistir(Asistencia asistencia) {
+    public void asistir(Asistencia asistencia, Instant horaLLegada) {
         for(Empleado e: empleados){
             asistencia.getListaDeAsistencia().add(e);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Departamento{" +
+                "nombre='" + nombre + '\'' +
+                '}';
     }
 }

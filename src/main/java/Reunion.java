@@ -17,7 +17,7 @@ public abstract class Reunion {
         this.horaPrevista=horaPrevista;
         this.duracionPrevista=duracionPrevista;
         this.invitacion= new Invitacion(this.horaPrevista);
-        this.asistencia=new Asistencia();
+        this.asistencia=new Asistencia(this.horaPrevista);
 
 
     }
@@ -26,6 +26,23 @@ public abstract class Reunion {
     }
     public Asistencia getAsistencia(){
         return asistencia;
+    }
+    public Instant getHoraPrevista(){
+        return horaPrevista;
+    }
+    public Instant getHoraInicio(){
+        return horaInicio;
+    }
+    public Instant getHoraFin() {
+        return horaFin;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public Duration getDuracionPrevista() {
+        return duracionPrevista;
     }
 }
 
