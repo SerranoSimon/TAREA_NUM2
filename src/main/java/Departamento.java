@@ -10,7 +10,9 @@ public class Departamento {
     public String getNombre() {
         return nombre;
     }
-
+    public void addEmpleado(Empleado empleado) {
+        empleados.add(empleado);
+    }
     public int obtenerCantidadEmpleados() {
         return empleados.size();
     }
