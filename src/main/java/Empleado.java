@@ -23,8 +23,8 @@ public class Empleado implements Invitable{
     }
 
     @Override
-    public void invitar( Reunion reunion) {
-        reunion.getListaInvitados().add(this);
+    public void invitar(Invitacion invitacion) {
+        invitacion.getListaDeInvitados().add(this);
 
 
     }
