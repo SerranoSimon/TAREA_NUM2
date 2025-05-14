@@ -44,5 +44,23 @@ public abstract class Reunion {
     public Duration getDuracionPrevista() {
         return duracionPrevista;
     }
+    public ArrayList<Empleado> obtenerAsistencias() {
+        return asistencia.getListaDeAsistencia();
+    }
+    public ArrayList<Empleado> obtenerAusencias() {
+        ArrayList<Empleado> ausentes = new ArrayList<>(invitacion.getListaDeInvitados());
+        ausentes.removeAll(asistencia.getListaDeAsistencia());
+        return ausentes;
+    }
+    public int obtenerTotalAsistencia() {
+        return asistencia.getListaDeAsistencia().size();
+    }
+    public float obtenerPorcentajeAsistencia() {
+        int NumeroInvitados = invitacion.getListaDeInvitados().size();
+        return (float) obtenerTotalAsistencia() / NumeroInvitados * 100;
+    }
+    public ArrayList<String> obtenerRetrasos() {
+        return asistencia.getInformacionRetrasos();
+    }
 }
 
