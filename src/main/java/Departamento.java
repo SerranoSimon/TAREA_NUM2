@@ -26,9 +26,9 @@ public class Departamento implements Invitable, Asistible{
     }
 
     @Override
-    public void asistir(Asistencia asistencia, Instant horaLLegada) {
+    public void asistir(Reunion reunion, Instant horaLLegada) {
         for(Empleado e: empleados){
-            asistencia.getListaDeAsistencia().add(e);
+            reunion.getAsistencia().getListaDeAsistencia().add(e);
         }
     }
 

@@ -31,9 +31,9 @@ public class Empleado implements Invitable, Asistible{
     }
 
     @Override
-    public void asistir(Asistencia asistencia, Instant horaLLegada) {
-        asistencia.getListaDeAsistencia().add(this);
-        asistencia.setLlegada(horaLLegada);
+    public void asistir(Reunion reunion, Instant horaLLegada) {
+        reunion.getAsistencia().getListaDeAsistencia().add(this);
+        reunion.getAsistencia().setLlegada(horaLLegada);
     }
 
     @Override
