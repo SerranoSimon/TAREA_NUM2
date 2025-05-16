@@ -3,10 +3,28 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
 
+/**
+ *Clase que representa al organizador de la reunión, hereda de empleado.
+ */
 public class Organizador extends Empleado{
+    /**
+     *Se crea un nuevo empleado con la capacidad adicional de escribir notas.
+     * @param id ID del organizador.
+     * @param apellidos apellidos del organizador.
+     * @param nombre nombre del organizador.
+     * @param correo correo del organizador.
+     */
     public Organizador(String id, String apellidos, String nombre, String correo) {
         super(id, apellidos, nombre, correo);
     }
+
+    /**
+     * este metodo permite al organizador escribir la nota en una reunión.
+     * @param reunion es la reunión sobre la cual se escribirá la nota.
+     * @param texto es el contenido de la nota.
+     * @param hora es la hora a la que se escribió la nota.
+     * @throws IOException si ocurre algún error al escribir la nota.
+     */
     public void escribir(Reunion reunion,String texto, Instant hora) throws IOException {
         reunion.getNota().agregar(texto,hora);
     }
