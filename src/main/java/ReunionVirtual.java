@@ -2,9 +2,23 @@ import java.io.IOException;
 import java.time.*;
 import java.util.ArrayList;
 
+/**
+ *Clase que hereda de reunión, representa una reunión virtual.
+ */
 public class ReunionVirtual extends Reunion{
     private String enlace;
 
+    /**
+     *
+     * @param tipoReunion tipo de reunión (MARKETING, TECNINA, OTRO).
+     * @param fecha se refiere a la fecha de la reunión.
+     * @param horaPrevista es la hora a la que debería comenzar la reunión.
+     * @param duracionPrevista duración estimada de la reunión.
+     * @param invitados lista de invitados.
+     * @param enlace enlace de la reunión virtual.
+     * @param organizador empleado organizador de la reunión.
+     * @throws IOException si ocurre un error relacionado a la creación del archivo de notas.
+     */
     public ReunionVirtual(tipoReunion tipoReunion,LocalDate fecha, Instant horaPrevista,
                           Duration duracionPrevista, ArrayList<Invitacion> invitados,
                           String enlace, Organizador organizador) throws IOException {
