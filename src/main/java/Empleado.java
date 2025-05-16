@@ -31,9 +31,17 @@ public class Empleado implements Invitable, Asistible{
     }
 
     @Override
-    public void asistir(Reunion reunion, Instant horaLLegada) {
-        reunion.getAsistencia().getListaDeAsistencia().add(this);
-        reunion.getAsistencia().setLlegada(horaLLegada);
+    public void asistir(Reunion reunion, Instant horaLLegada) throws ReunionFinalizada, ReunionNoEmpieza {
+        if(reunion.getHoraInicio()==null){
+            throw new ReunionNoEmpieza("Estimado/a "+nombre+apellidos+", ha llegado antes, la reunion aún no empieza.");
+        }
+        if(reunion.getHoraFin()==null){
+            reunion.getAsistencia().getListaDeAsistencia().add(this);
+            reunion.getAsistencia().setLlegada(horaLLegada);
+        }
+        else{
+            throw new ReunionFinalizada("Estimado/a "+nombre+apellidos+", ha llegado tarde, la reunión finalizó.");
+        }
     }
 
     @Override

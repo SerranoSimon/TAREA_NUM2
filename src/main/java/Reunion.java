@@ -62,5 +62,12 @@ public abstract class Reunion {
     public ArrayList<String> obtenerRetrasos() {
         return asistencia.getInformacionRetrasos();
     }
+    public void iniciar(Instant horaInicio){
+        this.horaInicio=horaInicio;
+    }
+    public void finalizar(Instant horaFin){
+        this.horaFin=horaFin;
+
+    }
 }
 
