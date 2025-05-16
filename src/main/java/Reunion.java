@@ -3,6 +3,7 @@ import java.time.*;
 //Cambiamos Date por localDate que es de java.time
 
 public abstract class Reunion {
+    private tipoReunion tipoReunion;
     private LocalDate fecha;
     private Instant horaPrevista;
     private Duration duracionPrevista;
@@ -12,7 +13,8 @@ public abstract class Reunion {
     private Asistencia asistencia;
 
 
-    public Reunion(LocalDate fecha, Instant horaPrevista, Duration duracionPrevista){
+    public Reunion(tipoReunion tipoReunion, LocalDate fecha, Instant horaPrevista, Duration duracionPrevista){
+        this.tipoReunion=tipoReunion;
         this.fecha=fecha;
         this.horaPrevista=horaPrevista;
         this.duracionPrevista=duracionPrevista;
