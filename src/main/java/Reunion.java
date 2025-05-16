@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.time.*;
 //Cambiamos Date por localDate que es de java.time
@@ -11,15 +14,19 @@ public abstract class Reunion {
     private Instant horaFin;
     private Invitacion invitacion;
     private Asistencia asistencia;
+    private Organizador organizador;
+    private Nota nota;
 
 
-    public Reunion(tipoReunion tipoReunion, LocalDate fecha, Instant horaPrevista, Duration duracionPrevista){
+    public Reunion(tipoReunion tipoReunion, LocalDate fecha, Instant horaPrevista, Duration duracionPrevista, Organizador organizador) throws IOException {
         this.tipoReunion=tipoReunion;
         this.fecha=fecha;
         this.horaPrevista=horaPrevista;
         this.duracionPrevista=duracionPrevista;
         this.invitacion= new Invitacion(this.horaPrevista);
         this.asistencia=new Asistencia(this.horaPrevista);
+        this.organizador=organizador;
+        this.nota=new Nota("nota.txt");
 
 
     }
@@ -45,6 +52,9 @@ public abstract class Reunion {
 
     public Duration getDuracionPrevista() {
         return duracionPrevista;
+    }
+    public Nota getNota(){
+        return nota;
     }
     public ArrayList<Empleado> obtenerAsistencias() {
         return asistencia.getListaDeAsistencia();
