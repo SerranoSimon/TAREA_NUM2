@@ -25,8 +25,13 @@ public class Organizador extends Empleado{
      * @param hora es la hora a la que se escribió la nota.
      * @throws IOException si ocurre algún error al escribir la nota.
      */
-    public void escribir(Reunion reunion,String texto, Instant hora) throws IOException {
-        reunion.getNota().agregar(texto,hora);
+    public void escribir(Reunion reunion,String texto, Instant hora) throws IOException, EscribeSinAsistir{
+        if(reunion.getAsistencia().getListaDeAsistencia().stream().anyMatch(persona -> persona==this)){
+            reunion.getNota().agregar(texto,hora);
+        }
+        else{
+            throw new EscribeSinAsistir("Estimado Organizador "+getNombre()+getApellidos()+", aún no ha llegado a la reunión");
+        }
     }
 
 }
