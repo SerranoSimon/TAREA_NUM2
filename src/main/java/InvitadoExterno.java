@@ -7,8 +7,20 @@ public class InvitadoExterno extends Persona implements Invitable,Asistible{
     }
     @Override
     public void asistir(Reunion reunion, Instant horaLLegada) throws
-            ReunionNoEmpieza, ReunionFinalizada {
+            ReunionNoEmpieza, ReunionFinalizada, AsisteSinSerInvitado{
+        if(reunion.getInvitacion().getListaDeInvitados().stream().anyMatch(persona -> persona!=this)){
+            throw new AsisteSinSerInvitado("Estimado/a"+getNombre()+getApellidos()+", no puede asistir a esta reunion ya que no está invitado");
+        }
+        if(reunion.getHoraInicio()==null){
+            throw new ReunionNoEmpieza("Estimado/a "+getNombre()+getApellidos()+", ha llegado antes, la reunion aún no empieza.");
+        }
+        if(reunion.getHoraFin()==null){
             reunion.getAsistencia().getListaDeAsistencia().add(this);
+            reunion.getAsistencia().setLlegada(horaLLegada);
+        }
+        else{
+            throw new ReunionFinalizada("Estimado/a "+getNombre()+getApellidos()+", ha llegado tarde, la reunión finalizó.");
+        }
 
     }
 

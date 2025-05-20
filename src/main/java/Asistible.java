@@ -11,6 +11,6 @@ public interface Asistible  {
      * @throws ReunionNoEmpieza en caso de que la reunion no ha comenzado aún.
      * @throws ReunionFinalizada en caso de que la reunión ya ha terminado.
      */
-    void asistir(Reunion reunion,Instant horaLLegada) throws ReunionNoEmpieza, ReunionFinalizada;
+    void asistir(Reunion reunion,Instant horaLLegada) throws ReunionNoEmpieza, ReunionFinalizada,AsisteSinSerInvitado;
 
 }

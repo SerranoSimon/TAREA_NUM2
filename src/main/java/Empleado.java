@@ -61,7 +61,11 @@ public class Empleado extends Persona implements Invitable, Asistible{
      */
 
     @Override
-    public void asistir(Reunion reunion, Instant horaLLegada) throws ReunionFinalizada, ReunionNoEmpieza{
+    public void asistir(Reunion reunion, Instant horaLLegada) throws ReunionFinalizada, ReunionNoEmpieza,
+            AsisteSinSerInvitado{
+        if(reunion.getInvitacion().getListaDeInvitados().stream().anyMatch(persona -> persona!=this)){
+            throw new AsisteSinSerInvitado("Estimado/a"+getNombre()+getApellidos()+", no puede asistir a esta reunion ya que no está invitado");
+        }
         if(reunion.getHoraInicio()==null){
             throw new ReunionNoEmpieza("Estimado/a "+getNombre()+getApellidos()+", ha llegado antes, la reunion aún no empieza.");
         }
