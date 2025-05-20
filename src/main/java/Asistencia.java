@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class Asistencia {
     private Instant horaInicio;
-    private ArrayList<Empleado> listaDeAsistencia;
+    private ArrayList<Persona> listaDeAsistencia;
     private ArrayList<String> informacionRetrasos;
 
     /**
@@ -24,7 +24,7 @@ public class Asistencia {
      * metodo para obtener la lista de empleados que asisten a una reunión.
      * @return retorna la lista de empleados asistentes.
      */
-    public ArrayList<Empleado> getListaDeAsistencia() {
+    public ArrayList<Persona> getListaDeAsistencia() {
         return listaDeAsistencia;
     }
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class Invitacion {
     private Instant hora;
-    private ArrayList<Empleado> listaDeInvitados;
+    private ArrayList<Persona> listaDeInvitados;
 
     /**
      *se crea una invitación a una reunión dirigida a los empleados.
@@ -30,7 +30,7 @@ public class Invitacion {
      *metodo para obtener la lista de invitados de una reunión.
      * @return retorna la lista de invitados.
      */
-    public ArrayList<Empleado> getListaDeInvitados() {
+    public ArrayList<Persona> getListaDeInvitados() {
         return listaDeInvitados;
     }
 }

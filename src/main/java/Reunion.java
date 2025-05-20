@@ -112,7 +112,7 @@ public abstract class Reunion {
      *metodo para obtener una lista referente a los empleados que asistieron a la reunión.
      * @return retorna los asistentes de la reunión.
      */
-    public ArrayList<Empleado> obtenerAsistencias() {
+    public ArrayList<Persona> obtenerAsistencias() {
         return asistencia.getListaDeAsistencia();
     }
 
@@ -120,8 +120,8 @@ public abstract class Reunion {
      *metodo para obtener una lista de ausencias en la reunión.
      * @return retorna la lista de ausentes de la reunión.
      */
-    public ArrayList<Empleado> obtenerAusencias() {
-        ArrayList<Empleado> ausentes = new ArrayList<>(invitacion.getListaDeInvitados());
+    public ArrayList<Persona> obtenerAusencias() {
+        ArrayList<Persona> ausentes = new ArrayList<>(invitacion.getListaDeInvitados());
         ausentes.removeAll(asistencia.getListaDeAsistencia());
         return ausentes;
     }
