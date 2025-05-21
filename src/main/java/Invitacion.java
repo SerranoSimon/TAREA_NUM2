@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- * Clase que representa lal invitación a una reunión.
+ * Clase que representa la invitación a una reunión.
  */
 public class Invitacion {
     private Instant hora;
@@ -15,9 +15,12 @@ public class Invitacion {
 
 
     /**
-     *se crea una invitación a una reunión dirigida a los empleados.
-     * se crea una lista vacía para llenar con los invitados a la reunión.
+     * se crea una invitación a una reunión dirigida a los empleados e invitados externos con parámetros esenciales que representan la información de la invitación.
+     *
      * @param hora hora de invitación.
+     * @param fecha fecha de la reunión.
+     * @param duracionPrevista un estimado de la duración de la reunión.
+     * @param tipoReunion se refiere al tipo de la reunión (TECNICA, MARKETING, OTRO).
      */
     public Invitacion(Instant hora, LocalDate fecha, Duration duracionPrevista, tipoReunion tipoReunion){
         this.hora=hora;
@@ -43,6 +46,11 @@ public class Invitacion {
     public ArrayList<Persona> getListaDeInvitados() {
         return listaDeInvitados;
     }
+
+    /**
+     *
+     * @return retorna la información asociada a la invitación (Tipo de reunión, fecha, hora, duración).
+     */
     @Override
     public String toString() {
         return "INVITACION:"+

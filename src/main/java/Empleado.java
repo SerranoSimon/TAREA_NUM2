@@ -1,7 +1,7 @@
 import java.time.Instant;
 
 /**
- *Clase que representa a un empleado que puede ser invitado a reuniones y asistir a ellas a tiempo, con retraso o no asistir.
+ *Clase que representa a un empleado que puede ser invitado a reuniones y asistir a ellas a tiempo, con retraso o no asistir. Hereda de clase persona.
  */
 public class Empleado extends Persona implements Invitable, Asistible{
     private String id;
@@ -27,20 +27,6 @@ public class Empleado extends Persona implements Invitable, Asistible{
         return id;
     }
 
-    /**
-     *metodo para obtener los apellidos del empleado.
-     * @return retorna los apellidos de un empleado en concreto.
-     */
-
-    /**
-     *metodo para obtener el nombre del empleado.
-     * @return retorna el nombre de un empleado en concreto.
-     */
-
-    /**
-     *metodo para obtener el correo del empleado.
-     * @return retorna el correo de un empleado en concreto.
-     */
 
     /**
      *permite la adición de un empleado a la lista de invitados de una reunión.

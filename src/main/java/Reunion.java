@@ -168,6 +168,10 @@ public abstract class Reunion {
 
     }
 
+    /**
+     *
+     * @return retorna la información de la reunión (tipo, hora prevista, duracion prevista, fecha, organizador, hora de inicio, hora de fin).
+     */
 
     @Override
     public String toString() {

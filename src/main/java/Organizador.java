@@ -34,6 +34,10 @@ public class Organizador extends Empleado{
         }
     }
 
+    /**
+     *
+     * @return menciona información del empleado organizador.
+     */
     @Override
     public String toString() {
         return "[Organizador: "+

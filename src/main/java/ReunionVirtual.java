@@ -30,6 +30,11 @@ public class ReunionVirtual extends Reunion{
     public Invitacion getInvitacion() {
         return invitacion;
     }
+
+    /**
+     *
+     * @return retorna información relevante acerca de la reunión virtual, incluye el enlace o link.
+     */
     @Override
     public String toString() {
         return "[Reunion Virtual: "+

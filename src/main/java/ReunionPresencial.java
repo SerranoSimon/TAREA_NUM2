@@ -28,11 +28,16 @@ public class ReunionPresencial extends Reunion {
 
     }
 
+
     @Override
     public Invitacion getInvitacion() {
         return invitacion;
     }
 
+    /**
+     *
+     * @return retorna información relevante acerca de la reunión presencial, incluyendo la sala de esta.
+     */
     @Override
     public String toString() {
         return "[Reunion Presencial: "+
