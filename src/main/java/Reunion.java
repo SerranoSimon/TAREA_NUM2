@@ -199,5 +199,12 @@ public abstract class Reunion {
                 ", Hora de termino: "+horaFinalTemp;
 
     }
+    /**
+     * metodo para calcular la duración total de una reunión
+     * @return retorna la duración entre la hora de inicio y la hora final de la reunión.
+     */
+    public Duration getDuracionTotal(){
+        return Duration.between(horaInicio,horaFin);
+    }
 }
 
