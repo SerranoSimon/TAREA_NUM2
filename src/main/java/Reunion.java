@@ -36,6 +36,7 @@ public abstract class Reunion {
         this.horaPrevista=horaPrevista;
         this.duracionPrevista=duracionPrevista;
         this.invitacion= new Invitacion(this.horaPrevista);
+        invitacion.getListaDeInvitados().add(organizador);
         this.asistencia=new Asistencia(this.horaPrevista);
         this.organizador=organizador;
         this.nota=new Nota("nota.txt");

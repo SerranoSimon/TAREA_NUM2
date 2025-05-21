@@ -76,7 +76,7 @@ public class Empleado extends Persona implements Invitable, Asistible{
             }
         }
         else{
-            throw new AsisteSinSerInvitado("Estimado/a"+getNombre()+getApellidos()+", no puede asistir a esta reunion ya que no está invitado");
+            throw new AsisteSinSerInvitado("Estimado/a "+getNombre()+getApellidos()+", no puede asistir a esta reunion ya que no está invitado");
         }
 
     }
