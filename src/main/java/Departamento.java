@@ -58,8 +58,13 @@ public class Departamento implements Invitable{
      */
     @Override
     public String toString() {
-        return "Departamento{" +
-                "nombre='" + nombre + '\'' +
-                '}';
+
+        String empleadosString= "";
+
+        for(Empleado e:empleados){
+            empleadosString=empleadosString+e.toString()+", ";
+        }
+        return "[Departamento de "+nombre+": "+empleadosString;
+
     }
 }

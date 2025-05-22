@@ -35,8 +35,7 @@ public abstract class Reunion {
         this.fecha=fecha;
         this.horaPrevista=horaPrevista;
         this.duracionPrevista=duracionPrevista;
-        this.invitacion= new Invitacion(this.horaPrevista);
-        invitacion.getListaDeInvitados().add(organizador);
+        this.invitacion= new Invitacion(horaPrevista,fecha,duracionPrevista,tipoReunion);
         this.asistencia=new Asistencia(this.horaPrevista);
         this.organizador=organizador;
         this.nota=new Nota("nota.txt");
@@ -166,6 +165,34 @@ public abstract class Reunion {
      */
     public void finalizar(Instant horaFin){
         this.horaFin=horaFin;
+
+    }
+
+
+    @Override
+    public String toString() {
+        String horaInicioTemp="";
+        String horaFinalTemp="";
+        if(horaInicio==null){
+            horaInicioTemp="La reunion no ha empezado";
+        }
+        else{
+            horaInicioTemp=horaInicio.toString();
+        }
+        if(horaFin==null){
+            horaFinalTemp="La reunion no ha finalizado";
+        }
+        else{
+            horaFinalTemp=horaFin.toString();
+        }
+        return
+                "Tipo Reunion= "+ tipoReunion+
+                ", Hora Prevista= "+ horaPrevista+
+                        "Duracion Prevista= "+duracionPrevista+
+                ", Fecha= "+fecha+
+                ", organizada por "+ organizador.toString()+
+                ", Hora de inicio: "+horaInicioTemp+
+                ", Hora de termino: "+horaFinalTemp;
 
     }
 }

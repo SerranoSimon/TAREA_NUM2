@@ -47,4 +47,9 @@ public class Asistencia {
         return informacionRetrasos;
     }
 
+    @Override
+    public String toString() {
+        return "Asistencia: Contiene la lista de asistencia e informacion sobre los retrasos";
+
+    }
 }

@@ -30,8 +30,13 @@ public class Organizador extends Empleado{
             reunion.getNota().agregar(texto,hora);
         }
         else{
-            throw new EscribeSinAsistir("Estimado Organizador "+getNombre()+getApellidos()+", aún no ha llegado a la reunión");
+            throw new EscribeSinAsistir("Estimado Organizador "+getNombre()+getApellidos()+", no puede escribir pues aún no ha llegado a la reunión");
         }
     }
 
+    @Override
+    public String toString() {
+        return "[Organizador: "+
+                super.toString();
+    }
 }

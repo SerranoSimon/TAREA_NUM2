@@ -19,4 +19,12 @@ public class Persona {
     public String getNombre() {
         return nombre;
     }
+
+    @Override
+    public String toString() {
+        return
+                " Apellidos= " + getApellidos()+
+                ", Nombre= " + getNombre() +
+                ", Correo='" + getCorreo()+"]";
+    }
 }

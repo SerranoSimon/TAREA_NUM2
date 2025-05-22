@@ -86,11 +86,9 @@ public class Empleado extends Persona implements Invitable, Asistible{
      */
     @Override
     public String toString() {
-        return "Empleado{" +
-                "id='" + id + '\'' +
-                ", apellidos='" + getApellidos() + '\'' +
-                ", nombre='" + getNombre() + '\'' +
-                ", correo='" + getCorreo() + '\'' +
-                '}';
+        return "[Empleado: " +
+                "ID= "+ id+","+
+                super.toString()+"]";
+
     }
 }

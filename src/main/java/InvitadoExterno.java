@@ -34,10 +34,7 @@ public class InvitadoExterno extends Persona implements Invitable,Asistible{
 
     @Override
     public String toString() {
-        return "InvitadoExterno{" +
-                "nombre='" + getNombre() + '\'' +
-                ", apellidos='" + getApellidos() + '\'' +
-                ", correo='" + getCorreo() + '\'' +
-                '}';
+        return "[InvitadoExterno" +
+                super.toString();
     }
 }

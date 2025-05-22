@@ -48,5 +48,10 @@ public class Nota {
     public ArrayList<String> leerNota() throws IOException {
         return (ArrayList<String>) Files.readAllLines(contenido);
     }
+
+    @Override
+    public String toString() {
+        return "[Nota de la reunion, donde su contenido está en un archivo .txt]";
+    }
 }
 

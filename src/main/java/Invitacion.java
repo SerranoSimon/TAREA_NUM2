@@ -1,4 +1,6 @@
+import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -6,16 +8,24 @@ import java.util.ArrayList;
  */
 public class Invitacion {
     private Instant hora;
+    private LocalDate fecha;
+    private Duration duracionPrevista;
+    private tipoReunion tipoReunion;
     private ArrayList<Persona> listaDeInvitados;
+
 
     /**
      *se crea una invitación a una reunión dirigida a los empleados.
      * se crea una lista vacía para llenar con los invitados a la reunión.
      * @param hora hora de invitación.
      */
-    public Invitacion(Instant hora){
+    public Invitacion(Instant hora, LocalDate fecha, Duration duracionPrevista, tipoReunion tipoReunion){
         this.hora=hora;
+        this.tipoReunion=tipoReunion;
+        this.fecha=fecha;
+        this.duracionPrevista=duracionPrevista;
         this.listaDeInvitados=new ArrayList<>();
+
     }
 
     /**
@@ -32,5 +42,14 @@ public class Invitacion {
      */
     public ArrayList<Persona> getListaDeInvitados() {
         return listaDeInvitados;
+    }
+    @Override
+    public String toString() {
+        return "INVITACION:"+
+                "\n[Has sido invitado a una reunión de "+tipoReunion+
+                "\nFecha: "+fecha+
+                "\nHora: "+hora+
+                "\nDuracion aproximada: "+duracionPrevista;
+
     }
 }

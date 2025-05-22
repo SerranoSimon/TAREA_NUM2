@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class ReunionPresencial extends Reunion {
     private String sala;
+    private Invitacion invitacion;
 
     /**
      *
@@ -18,8 +19,24 @@ public class ReunionPresencial extends Reunion {
      * @param organizador empleado organizador de la reunión.
      * @throws IOException Si ocurre un error relacionado a la creación del archivo de notas.
      */
-    public ReunionPresencial(tipoReunion tipoReunion,LocalDate fecha, Instant horaPrevista, Duration duracionPrevista,String sala, Organizador organizador) throws IOException {
+    public ReunionPresencial(tipoReunion tipoReunion,LocalDate fecha, Instant horaPrevista,
+                             Duration duracionPrevista,String sala, Organizador organizador) throws IOException {
         super(tipoReunion,fecha, horaPrevista, duracionPrevista, organizador);
         this.sala=sala;
+        this.invitacion=new InvitacionPresencial(horaPrevista,fecha,duracionPrevista,tipoReunion,sala);
+        invitacion.getListaDeInvitados().add(organizador);
+
+    }
+
+    @Override
+    public Invitacion getInvitacion() {
+        return invitacion;
+    }
+
+    @Override
+    public String toString() {
+        return "[Reunion Presencial: "+
+                super.toString()+
+                ", Lugar: sala "+sala+"]";
     }
 }
