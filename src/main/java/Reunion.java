@@ -169,7 +169,10 @@ public abstract class Reunion {
      *
      * @param horaFin se refiere a la hora en la que la reunión se terminó.
      */
-    public void finalizar(Instant horaFin){
+    public void finalizar(Instant horaFin) throws FinalizarSinIniciar{
+        if(horaInicio==null){
+            throw new FinalizarSinIniciar("No se puede finalizar la reunión si aún no ha iniciado");
+        }
         this.horaFin=horaFin;
 
     }
