@@ -28,5 +28,24 @@ class DepartamentoTest {
         listaEsperada.add(e2);
         assertEquals(listaEsperada,r1.getInvitacion().getListaDeInvitados());
 
+
+    }
+
+    @Test
+    void obtenerCantidadEmpleados() {
+        Empleado e1 = new Empleado("102","Chavez Hernandez","Carlos","carloschavez@gmail.com");
+        Empleado e2 = new Empleado("103","Chavez Zapata","Maria","mariachavez@gmail.com");
+        Empleado e3= new Empleado ("104","Parra Muñoz","Pablo","pablomuñoz@gmail.com");
+        Departamento d2 = new Departamento("Departamento C");
+        d2.addEmpleado(e1);
+        d2.addEmpleado(e2);
+        d2.addEmpleado(e3);
+        int esperado = 3;
+        assertEquals(esperado,d2.obtenerCantidadEmpleados());
+        Departamento d3 = new Departamento("Departamento D");
+        int esperado1= 0;
+        assertEquals(esperado1,d3.obtenerCantidadEmpleados());
+
+
     }
 }
