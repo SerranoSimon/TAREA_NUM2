@@ -200,11 +200,12 @@ public abstract class Reunion {
 
     }
     /**
-     * metodo para calcular la duración total de una reunión
+     * metodo para calcular la duración total de una reunión en minutos.
      * @return retorna la duración entre la hora de inicio y la hora final de la reunión.
      */
-    public Duration getDuracionTotal(){
-        return Duration.between(horaInicio,horaFin);
+    public float getDuracionTotal() {
+        Duration duracion = Duration.between(horaInicio, horaFin);
+        return duracion.toMillis() / 60000f;
     }
 }
 
