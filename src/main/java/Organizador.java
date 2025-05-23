@@ -26,7 +26,7 @@ public class Organizador extends Empleado{
      * @throws IOException si ocurre algún error al escribir la nota.
      */
     public void escribir(Reunion reunion,String texto, Instant hora) throws IOException, EscribeSinAsistir{
-        if(reunion.getAsistencia().getListaDeAsistencia().stream().anyMatch(persona -> persona==this)){
+        if(reunion.obtenerAsistencias().stream().anyMatch(persona -> persona==this)){
             reunion.getNota().agregar(texto,hora);
         }
         else{

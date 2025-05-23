@@ -13,12 +13,12 @@ public class InvitacionPresencial extends Invitacion{
      *
      * @param hora hora de invitación.
      * @param fecha fecha de reunión.
-     * @param duracionPrevista duración estimada de la reunión.
+     * @param duracionPrevistaHoras duración estimada de la reunión.
      * @param tipoReunion tipo de reunión (TECNICA, MARKETING, OTRO).
      */
-    public InvitacionPresencial(Instant hora, LocalDate fecha, Duration duracionPrevista, tipoReunion tipoReunion,String sala) {
+    public InvitacionPresencial(Instant hora, LocalDate fecha, float duracionPrevistaHoras, tipoReunion tipoReunion,String sala) {
 
-        super(hora, fecha, duracionPrevista, tipoReunion);
+        super(hora, fecha, duracionPrevistaHoras, tipoReunion);
         this.sala=sala;
     }
 

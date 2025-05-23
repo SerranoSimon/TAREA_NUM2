@@ -13,12 +13,12 @@ public class InvitacionVirtual extends Invitacion{
      *
      * @param hora hora de invitación.
      * @param fecha fecha de la reunión.
-     * @param duracionPrevista duración estimada de la reunión.
+     * @param duracionPrevistaHoras duración estimada de la reunión.
      * @param tipoReunion tipo de reunión (TECNICA, MARKETING, OTRO)
      */
-    public InvitacionVirtual(Instant hora, LocalDate fecha, Duration duracionPrevista, tipoReunion tipoReunion, String enlace) {
+    public InvitacionVirtual(Instant hora, LocalDate fecha, float duracionPrevistaHoras, tipoReunion tipoReunion, String enlace) {
 
-        super(hora, fecha, duracionPrevista, tipoReunion);
+        super(hora, fecha, duracionPrevistaHoras, tipoReunion);
         this.enlace=enlace;
     }
 

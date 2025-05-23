@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * Clase que representa a una persona que puede ser invitada a una reunión, asistir o no.
  */
@@ -51,6 +53,19 @@ public class Persona {
         return
                 " Apellidos= " + getApellidos()+
                 ", Nombre= " + getNombre() +
-                ", Correo='" + getCorreo()+"]";
+                ", Correo= " + getCorreo()+"]";
     }
+    //Para poder usar removeAll en obtenerAusencias
+    /*@Override
+    public boolean equals(Object o) {
+        if(this== o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Persona persona = (Persona) o;
+        return Objects.equals(nombre, persona.nombre) && Objects.equals(apellidos, persona.apellidos) && Objects.equals(correo, persona.correo);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, apellidos, correo);
+    }*/
+
 }

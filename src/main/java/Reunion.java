@@ -12,7 +12,7 @@ public abstract class Reunion {
     private tipoReunion tipoReunion;
     private LocalDate fecha;
     private Instant horaPrevista;
-    private Duration duracionPrevista;
+    private float duracionPrevistaHoras;
     private Instant horaInicio;
     private Instant horaFin;
     private Invitacion invitacion;
@@ -25,17 +25,17 @@ public abstract class Reunion {
      * @param tipoReunion es el tipo de reunión (TECNICA, MARKETING, OTRO).
      * @param fecha se refiere a la fecha de la reunión.
      * @param horaPrevista se refiere a la hora en la que se debería comenzar la reunión.
-     * @param duracionPrevista se refiere a la duración estimada de la reunión.
+     * @param duracionPrevistaHoras se refiere a la duración estimada de la reunión.
      * @param organizador se refiere a un empleado que actuará como organizador en la reunión.
      * @throws IOException excepción que sirve para evitar errores referentes a las notas.
      */
 
-    public Reunion(tipoReunion tipoReunion, LocalDate fecha, Instant horaPrevista, Duration duracionPrevista, Organizador organizador) throws IOException {
+    public Reunion(tipoReunion tipoReunion, LocalDate fecha, Instant horaPrevista, float duracionPrevistaHoras, Organizador organizador) throws IOException {
         this.tipoReunion=tipoReunion;
         this.fecha=fecha;
         this.horaPrevista=horaPrevista;
-        this.duracionPrevista=duracionPrevista;
-        this.invitacion= new Invitacion(horaPrevista,fecha,duracionPrevista,tipoReunion);
+        this.duracionPrevistaHoras=duracionPrevistaHoras;
+        this.invitacion= new Invitacion(horaPrevista,fecha,duracionPrevistaHoras,tipoReunion);
         this.asistencia=new Asistencia(this.horaPrevista);
         this.organizador=organizador;
         this.nota=new Nota("nota.txt");
@@ -96,8 +96,8 @@ public abstract class Reunion {
      * @return retorna la duración estimada de la reunión.
      */
 
-    public Duration getDuracionPrevista() {
-        return duracionPrevista;
+    public float getDuracionPrevista() {
+        return duracionPrevistaHoras;
     }
 
     /**
@@ -115,14 +115,20 @@ public abstract class Reunion {
     public ArrayList<Persona> obtenerAsistencias() {
         return asistencia.getListaDeAsistencia();
     }
+    public ArrayList<Persona> obtenerInvitados() {
+        return invitacion.getListaDeInvitados();
+    }
+
+
+
 
     /**
      *metodo para obtener una lista de ausencias en la reunión.
      * @return retorna la lista de ausentes de la reunión.
      */
     public ArrayList<Persona> obtenerAusencias() {
-        ArrayList<Persona> ausentes = new ArrayList<>(invitacion.getListaDeInvitados());
-        ausentes.removeAll(asistencia.getListaDeAsistencia());
+        ArrayList<Persona> ausentes = new ArrayList<>(obtenerInvitados());
+        ausentes.removeAll(obtenerAsistencias());
         return ausentes;
     }
 
@@ -139,7 +145,7 @@ public abstract class Reunion {
      * @return retorna el porcentaje de asistencia.
      */
     public float obtenerPorcentajeAsistencia() {
-        int NumeroInvitados = invitacion.getListaDeInvitados().size();
+        int NumeroInvitados = obtenerInvitados().size();
         return (float) obtenerTotalAsistencia() / NumeroInvitados * 100;
     }
 
@@ -167,6 +173,18 @@ public abstract class Reunion {
         this.horaFin=horaFin;
 
     }
+    /**
+     * metodo para calcular la duración total de una reunión en horas.
+     * @return retorna la duración entre la hora de inicio y la hora final de la reunión.
+     */
+    public float calcularTiempoReal() throws NullPointerException{
+        if(horaInicio==null || horaFin==null){
+            throw new NullPointerException("La reunion aún no ha empezado o terminado");
+        }
+        else{
+            Duration duracionReal=Duration.between(horaInicio,horaFin);
+             return duracionReal.toMinutes()/60f;}
+    }
 
     /**
      *
@@ -192,20 +210,14 @@ public abstract class Reunion {
         return
                 "Tipo Reunion= "+ tipoReunion+
                 ", Hora Prevista= "+ horaPrevista+
-                        "Duracion Prevista= "+duracionPrevista+
+                        ", Duracion Prevista= "+duracionPrevistaHoras+"h"+
                 ", Fecha= "+fecha+
                 ", organizada por "+ organizador.toString()+
                 ", Hora de inicio: "+horaInicioTemp+
                 ", Hora de termino: "+horaFinalTemp;
 
     }
-    /**
-     * metodo para calcular la duración total de una reunión en minutos.
-     * @return retorna la duración entre la hora de inicio y la hora final de la reunión.
-     */
-    public float getDuracionTotal() {
-        Duration duracion = Duration.between(horaInicio, horaFin);
-        return duracion.toMillis() / 60000f;
-    }
+
+
 }
 

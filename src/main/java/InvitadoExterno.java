@@ -26,6 +26,11 @@ public class InvitadoExterno extends Persona implements Invitable,Asistible{
     @Override
     public void asistir(Reunion reunion, Instant horaLLegada) throws
             ReunionNoEmpieza, ReunionFinalizada, AsisteSinSerInvitado{
+        boolean presente= reunion.obtenerAsistencias().stream().anyMatch(persona -> persona==this);
+        if(presente){
+            return;
+        }
+
         if(reunion.getInvitacion().getListaDeInvitados().stream().anyMatch(persona -> persona==this)){
             if(reunion.getHoraInicio()==null){
                 throw new ReunionNoEmpieza("Estimado/a "+getNombre()+getApellidos()+", ha llegado antes, la reunion aún no empieza.");
@@ -50,8 +55,10 @@ public class InvitadoExterno extends Persona implements Invitable,Asistible{
      */
     @Override
     public void invitar(Invitacion invitacion) {
-        invitacion.getListaDeInvitados().add(this);
-
+        boolean estaiInvitado=invitacion.getListaDeInvitados().stream().anyMatch(persona -> persona==this);
+        if(!estaiInvitado){
+            invitacion.getListaDeInvitados().add(this);
+        }
     }
 
     /**

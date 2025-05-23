@@ -48,7 +48,7 @@ public class Departamento implements Invitable{
     @Override
     public void invitar(Invitacion invitacion) {
         for(Empleado e: empleados){
-            invitacion.getListaDeInvitados().add(e);
+            e.invitar(invitacion);
         }
     }
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Invitacion {
     private Instant hora;
     private LocalDate fecha;
-    private Duration duracionPrevista;
+    private float duracionPrevistaHoras;
     private tipoReunion tipoReunion;
     private ArrayList<Persona> listaDeInvitados;
 
@@ -19,14 +19,14 @@ public class Invitacion {
      *
      * @param hora hora de invitación.
      * @param fecha fecha de la reunión.
-     * @param duracionPrevista un estimado de la duración de la reunión.
+     * @param duracionPrevistaHoras un estimado de la duración de la reunión.
      * @param tipoReunion se refiere al tipo de la reunión (TECNICA, MARKETING, OTRO).
      */
-    public Invitacion(Instant hora, LocalDate fecha, Duration duracionPrevista, tipoReunion tipoReunion){
+    public Invitacion(Instant hora, LocalDate fecha, float duracionPrevistaHoras, tipoReunion tipoReunion){
         this.hora=hora;
         this.tipoReunion=tipoReunion;
         this.fecha=fecha;
-        this.duracionPrevista=duracionPrevista;
+        this.duracionPrevistaHoras=duracionPrevistaHoras;
         this.listaDeInvitados=new ArrayList<>();
 
     }
@@ -57,7 +57,7 @@ public class Invitacion {
                 "\n[Has sido invitado a una reunión de "+tipoReunion+
                 "\nFecha: "+fecha+
                 "\nHora: "+hora+
-                "\nDuracion aproximada: "+duracionPrevista;
+                "\nDuracion aproximada: "+duracionPrevistaHoras+"h";
 
     }
 }

@@ -14,16 +14,16 @@ public class ReunionPresencial extends Reunion {
      * @param tipoReunion tipo de reunion (MARKETING, TECNICA, OTRO)
      * @param fecha fecha de la reunion
      * @param horaPrevista hora a la que debería comenzar la reunión.
-     * @param duracionPrevista duración estimada de la reunión.
+     * @param duracionPrevistaHoras duración estimada de la reunión.
      * @param sala sala en la que se hará la reunión.
      * @param organizador empleado organizador de la reunión.
      * @throws IOException Si ocurre un error relacionado a la creación del archivo de notas.
      */
     public ReunionPresencial(tipoReunion tipoReunion,LocalDate fecha, Instant horaPrevista,
-                             Duration duracionPrevista,String sala, Organizador organizador) throws IOException {
-        super(tipoReunion,fecha, horaPrevista, duracionPrevista, organizador);
+                             float duracionPrevistaHoras,String sala, Organizador organizador) throws IOException {
+        super(tipoReunion,fecha, horaPrevista, duracionPrevistaHoras, organizador);
         this.sala=sala;
-        this.invitacion=new InvitacionPresencial(horaPrevista,fecha,duracionPrevista,tipoReunion,sala);
+        this.invitacion=new InvitacionPresencial(horaPrevista,fecha,duracionPrevistaHoras,tipoReunion,sala);
         invitacion.getListaDeInvitados().add(organizador);
 
     }
@@ -43,5 +43,8 @@ public class ReunionPresencial extends Reunion {
         return "[Reunion Presencial: "+
                 super.toString()+
                 ", Lugar: sala "+sala+"]";
+    }
+    public ArrayList<Persona> obtenerInvitados() {
+        return invitacion.getListaDeInvitados();
     }
 }

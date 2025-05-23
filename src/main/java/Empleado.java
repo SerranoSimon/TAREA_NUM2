@@ -34,8 +34,10 @@ public class Empleado extends Persona implements Invitable, Asistible{
      */
     @Override
     public void invitar(Invitacion invitacion) {
-        invitacion.getListaDeInvitados().add(this);
-
+        boolean estaInvitado=invitacion.getListaDeInvitados().stream().anyMatch(persona -> persona==this);
+        if(!estaInvitado){
+            invitacion.getListaDeInvitados().add(this);
+        }
     }
 
     /**
@@ -49,20 +51,24 @@ public class Empleado extends Persona implements Invitable, Asistible{
     @Override
     public void asistir(Reunion reunion, Instant horaLLegada) throws ReunionFinalizada, ReunionNoEmpieza,
             AsisteSinSerInvitado{
-        if(reunion.getInvitacion().getListaDeInvitados().stream().anyMatch(persona -> persona==this)){
+        boolean presente= reunion.obtenerAsistencias().stream().anyMatch(persona -> persona==this);
+        if(presente){
+            return;
+        }
+        if(reunion.obtenerInvitados().stream().anyMatch(persona -> persona==this)){
             if(reunion.getHoraInicio()==null){
-                throw new ReunionNoEmpieza("Estimado/a "+getNombre()+getApellidos()+", ha llegado antes, la reunion aún no empieza.");
+                throw new ReunionNoEmpieza("Estimado/a "+getNombre()+" "+getApellidos()+", ha llegado antes, la reunion aún no empieza.");
             }
             if(reunion.getHoraFin()==null){
-                reunion.getAsistencia().getListaDeAsistencia().add(this);
+                reunion.obtenerAsistencias().add(this);
                 reunion.getAsistencia().setLlegada(horaLLegada);
             }
             else{
-                throw new ReunionFinalizada("Estimado/a "+getNombre()+getApellidos()+", ha llegado tarde, la reunión finalizó.");
+                throw new ReunionFinalizada("Estimado/a "+getNombre()+" "+getApellidos()+", ha llegado tarde, la reunión finalizó.");
             }
         }
         else{
-            throw new AsisteSinSerInvitado("Estimado/a "+getNombre()+getApellidos()+", no puede asistir a esta reunion ya que no está invitado");
+            throw new AsisteSinSerInvitado("Estimado/a "+getNombre()+" "+getApellidos()+", no puede asistir a esta reunion ya que no está invitado");
         }
 
     }
