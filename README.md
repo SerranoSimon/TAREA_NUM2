@@ -13,9 +13,8 @@ Cambios en el UML:
      hora en particular.
    -Sobre la invitación:
      Añadimos como atributos  de Invitacion algunos atributos de reunion, los cuales se les pasa en el constructor de reunion a 
-      invitacion.
-     Esto debido a que, al momento de hacer ToString a invitacion, encontramos que una invitacion debería señalar estos aspectos de una r 
-     eunion.
+      invitacion.Esto debido a que, al momento de hacer ToString a invitacion, encontramos que una invitacion debería señalar estos 
+      aspectos de una reunion. 
      Creamos Invitacion virtual e Invitacion Presencial que heredan de invitacion para que tengan en su ToString el lugar, link y sala 
      respectivamente.
    -Sobre organizador:
