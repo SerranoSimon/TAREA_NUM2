@@ -26,10 +26,21 @@ public class ReunionVirtual extends Reunion{
         this.invitacion=new InvitacionVirtual(horaPrevista,fecha,duracionPrevistaHoras,tipoReunion,enlace);
         invitacion.getListaDeInvitados().add(organizador);
     }
+    /**
+     *metodo para obtener la invitacion de una reunion virtual.
+     *@return retorna la invitacion  de la reunión virtual.
+     */
     @Override
     public Invitacion getInvitacion() {
         return invitacion;
     }
+
+    /**
+     * metodo para obtener una lista de las personas invitadas a la reunión.
+     * @return retorna la lista de invitados de la reunión.
+     */
+    public ArrayList<Persona> obtenerInvitados(){
+        return invitacion.getListaDeInvitados();}
 
     /**
      *
@@ -41,6 +52,4 @@ public class ReunionVirtual extends Reunion{
                 super.toString()+
                 ", Enlace "+enlace+"]";
     }
-    public ArrayList<Persona> obtenerInvitados(){
-        return invitacion.getListaDeInvitados();}
 }

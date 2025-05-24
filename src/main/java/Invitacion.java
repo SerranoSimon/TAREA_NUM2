@@ -1,4 +1,4 @@
-import java.time.Duration;
+
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ public class Invitacion {
 
 
     /**
-     * se crea una invitación a una reunión dirigida a los empleados e invitados externos con parámetros esenciales que representan la información de la invitación.
+     * se crea una invitación a una reunión dirigida a los empleados e invitados externos con parámetros que representan la información de la invitación.
      *
-     * @param hora hora de invitación.
+     * @param hora hora de invitación (misma que la hora prevista de reunion).
      * @param fecha fecha de la reunión.
      * @param duracionPrevistaHoras un estimado de la duración de la reunión.
      * @param tipoReunion se refiere al tipo de la reunión (TECNICA, MARKETING, OTRO).

@@ -54,7 +54,7 @@ public class Departamento implements Invitable{
 
     /**
      *
-     * @return retorna texto descriptivo del departamento, indicando su nombre.
+     * @return retorna texto descriptivo del departamento, indicando su nombre y sus empleados.
      */
     @Override
     public String toString() {
@@ -62,9 +62,9 @@ public class Departamento implements Invitable{
         String empleadosString= "";
 
         for(Empleado e:empleados){
-            empleadosString=empleadosString+e.toString()+", ";
+            empleadosString=empleadosString+e.toString().substring(0,e.toString().length() - 1)+", ";
         }
-        return "[Departamento de "+nombre+": "+empleadosString;
+        return "[Departamento de "+nombre+": "+empleadosString.substring(0, empleadosString.length() - 2)+"]";
 
     }
 }

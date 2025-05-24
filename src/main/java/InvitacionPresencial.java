@@ -1,4 +1,4 @@
-import java.time.Duration;
+
 import java.time.Instant;
 import java.time.LocalDate;
 
@@ -11,7 +11,7 @@ public class InvitacionPresencial extends Invitacion{
      * se crea una invitación a una reunión dirigida a los empleados.
      * se crea una lista vacía para llenar con los invitados a la reunión.
      *
-     * @param hora hora de invitación.
+     * @param hora hora de invitación (misma que la hora prevista de reunion).
      * @param fecha fecha de reunión.
      * @param duracionPrevistaHoras duración estimada de la reunión.
      * @param tipoReunion tipo de reunión (TECNICA, MARKETING, OTRO).

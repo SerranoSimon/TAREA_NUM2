@@ -11,7 +11,7 @@ public class InvitacionVirtual extends Invitacion{
      * se crea una invitación a una reunión dirigida a los empleados.
      * se crea una lista vacía para llenar con los invitados a la reunión.
      *
-     * @param hora hora de invitación.
+     *@param hora hora de invitación (misma que la hora prevista de reunion).
      * @param fecha fecha de la reunión.
      * @param duracionPrevistaHoras duración estimada de la reunión.
      * @param tipoReunion tipo de reunión (TECNICA, MARKETING, OTRO)
@@ -24,7 +24,7 @@ public class InvitacionVirtual extends Invitacion{
 
     /**
      *
-     * @return retorna el enlace o link de la reunión.
+     * @return retorna el enlace de la reunión.
      */
     @Override
     public String toString() {

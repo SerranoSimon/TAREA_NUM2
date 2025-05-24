@@ -10,6 +10,7 @@ public interface Asistible  {
      * @param horaLLegada se refiere a la hora a la que llega el empleado.
      * @throws ReunionNoEmpieza en caso de que la reunion no ha comenzado aún.
      * @throws ReunionFinalizada en caso de que la reunión ya ha terminado.
+     * @throws AsisteSinSerInvitado en caso que intente asistir sin estar en la lista de invitados.
      */
     void asistir(Reunion reunion,Instant horaLLegada) throws ReunionNoEmpieza, ReunionFinalizada,AsisteSinSerInvitado;
 

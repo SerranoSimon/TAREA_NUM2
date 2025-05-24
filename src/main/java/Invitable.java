@@ -1,7 +1,7 @@
 import java.time.Instant;
 
 /**
- *Interfaz que representa la capacidad de un empleaod para ser invitado a una reunión.
+ *Interfaz que representa la capacidad de un empleado para ser invitado a una reunión.
  */
 public interface Invitable {
     /**

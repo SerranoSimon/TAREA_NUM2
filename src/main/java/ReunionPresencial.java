@@ -28,10 +28,23 @@ public class ReunionPresencial extends Reunion {
 
     }
 
-
+    /**
+     *metodo para obtener la invitacion de una reunion presencial.
+     * @return retorna la invitacion  de la reunión presencial.
+     */
     @Override
     public Invitacion getInvitacion() {
         return invitacion;
+    }
+
+
+    /**
+     * metodo para obtener una lista de las personas invitadas a la reunión.
+     * @return retorna la lista de invitados de la reunión.
+     */
+    @Override
+    public ArrayList<Persona> obtenerInvitados() {
+        return invitacion.getListaDeInvitados();
     }
 
     /**
@@ -44,7 +57,5 @@ public class ReunionPresencial extends Reunion {
                 super.toString()+
                 ", Lugar: sala "+sala+"]";
     }
-    public ArrayList<Persona> obtenerInvitados() {
-        return invitacion.getListaDeInvitados();
-    }
+
 }

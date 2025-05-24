@@ -1,7 +1,5 @@
 import java.io.IOException;
-import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDate;
 
 /**
  *Clase que representa al organizador de la reunión, hereda de empleado.

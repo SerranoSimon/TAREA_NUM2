@@ -1,7 +1,7 @@
 import java.time.Instant;
 
 /**
- *Clase que representa a un empleado que puede ser invitado a reuniones y asistir a ellas a tiempo, con retraso o no asistir. Hereda de clase persona.
+ *Clase que representa a un empleado que puede ser invitado y asistir a reuniones. Hereda de Persona.
  */
 public class Empleado extends Persona implements Invitable, Asistible{
     private String id;
@@ -41,7 +41,8 @@ public class Empleado extends Persona implements Invitable, Asistible{
     }
 
     /**
-     *se controla la asistencia de un empleado en concreto, indicando si ha llegado antes de que comience la reunión o cuando ya ha terminado.
+     *se controla la asistencia de un empleado en concreto, indicando si ha llegado antes de que comience la reunión,
+     * durante la reunion o cuando ya finalizó, también ve si ya está presente.
      * @param reunion reunión a la que asiste
      * @param horaLLegada hora a la que el empleado ha llegado a la reunión.
      * @throws ReunionFinalizada en caso de que el empleado llegó cuando la reunión ya había finalizado.
@@ -61,7 +62,7 @@ public class Empleado extends Persona implements Invitable, Asistible{
             }
             if(reunion.getHoraFin()==null){
                 reunion.obtenerAsistencias().add(this);
-                reunion.getAsistencia().setLlegada(horaLLegada);
+                reunion.getAsistencia().Llegada(horaLLegada);
             }
             else{
                 throw new ReunionFinalizada("Estimado/a "+getNombre()+" "+getApellidos()+", ha llegado tarde, la reunión finalizó.");

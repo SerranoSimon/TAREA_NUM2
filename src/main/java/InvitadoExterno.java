@@ -1,7 +1,8 @@
 import java.time.Instant;
 
 /**
- * Clase que representa invitados externos que pueden asistir a reuniones. Hereda de clase Persona.
+ * Clase que representa invitados externos que pueden ser invitados y asistir a reuniones.
+ * Hereda de clase Persona.
  */
 public class InvitadoExterno extends Persona implements Invitable,Asistible{
     /**
@@ -16,7 +17,8 @@ public class InvitadoExterno extends Persona implements Invitable,Asistible{
     }
 
     /**
-     *
+     *se controla la asistencia de un invitado externo en concreto, indicando si ha llegado antes de que comience la reunión,
+     * durante la reunion o cuando ya finalizó, también ve si ya está presente.
      * @param reunion se refiere a la reunión a la que se asiste.
      * @param horaLLegada se refiere a la hora a la que llega el empleado.
      * @throws ReunionNoEmpieza en caso de que llegue antes del comienzo de la reunión.
@@ -37,7 +39,7 @@ public class InvitadoExterno extends Persona implements Invitable,Asistible{
             }
             if(reunion.getHoraFin()==null){
                 reunion.getAsistencia().getListaDeAsistencia().add(this);
-                reunion.getAsistencia().setLlegada(horaLLegada);
+                reunion.getAsistencia().Llegada(horaLLegada);
             }
             else{
                 throw new ReunionFinalizada("Estimado/a "+getNombre()+getApellidos()+", ha llegado tarde, la reunión finalizó.");
@@ -55,8 +57,8 @@ public class InvitadoExterno extends Persona implements Invitable,Asistible{
      */
     @Override
     public void invitar(Invitacion invitacion) {
-        boolean estaiInvitado=invitacion.getListaDeInvitados().stream().anyMatch(persona -> persona==this);
-        if(!estaiInvitado){
+        boolean estaInvitado=invitacion.getListaDeInvitados().stream().anyMatch(persona -> persona==this);
+        if(!estaInvitado){
             invitacion.getListaDeInvitados().add(this);
         }
     }

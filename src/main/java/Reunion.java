@@ -1,10 +1,6 @@
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.time.*;
-//Cambiamos Date por localDate que es de java.time
-
 /**
  * Clase abstracta que representa una reunión.
  */
@@ -110,16 +106,19 @@ public abstract class Reunion {
 
     /**
      *metodo para obtener una lista referente a los empleados que asistieron a la reunión.
-     * @return retorna los asistentes de la reunión.
+     * @return retorna la lista de asistencia  de la reunión.
      */
     public ArrayList<Persona> obtenerAsistencias() {
         return asistencia.getListaDeAsistencia();
     }
+
+    /**
+     * metodo para obtener una lista de las personas invitadas a la reunión.
+     * @return retorna la lista de invitados de la reunión.
+     */
     public ArrayList<Persona> obtenerInvitados() {
         return invitacion.getListaDeInvitados();
     }
-
-
 
 
     /**
@@ -134,7 +133,7 @@ public abstract class Reunion {
 
     /**
      *metodo para obtener la cantidad total de empleados que asistieron.
-     * @return retorna un número referente a la cantidad de empleados que asistieron a la reunión.
+     * @return retorna un número  referente a la cantidad de empleados que asistieron a la reunión.
      */
     public int obtenerTotalAsistencia() {
         return asistencia.getListaDeAsistencia().size();
@@ -145,7 +144,7 @@ public abstract class Reunion {
      * @return retorna el porcentaje de asistencia.
      */
     public float obtenerPorcentajeAsistencia() {
-        int NumeroInvitados = obtenerInvitados().size();
+        int NumeroInvitados = obtenerInvitados().size(); //nunca es 0 porque siempre hay un organizador.
         return (float) obtenerTotalAsistencia() / NumeroInvitados * 100;
     }
 
@@ -158,7 +157,7 @@ public abstract class Reunion {
     }
 
     /**
-     *
+     *metodo que inicia la reunion a cierta hora
      * @param horaInicio se refiere a la hora de inicio de la reunion
      */
     public void iniciar(Instant horaInicio){
@@ -166,7 +165,7 @@ public abstract class Reunion {
     }
 
     /**
-     *
+     *metodo que finaliza la reunion a cierta hora
      * @param horaFin se refiere a la hora en la que la reunión se terminó.
      */
     public void finalizar(Instant horaFin) throws FinalizarSinIniciar{

@@ -11,7 +11,7 @@ public class Asistencia {
 
     /**
      * Constructor que inicializa la hora de inicio y la lista de asistencias, junto a la información de los retrasos.
-     * @param horaInicio Se refiere a la hora en la cual debería comenzar la reunión.
+     * @param horaInicio Se refiere a la hora en la cual comienza la reunión.
      *
      */
     public Asistencia(Instant horaInicio){
@@ -30,10 +30,10 @@ public class Asistencia {
 
     /**
      *se verifica si hubo un retraso al comparar la hora de llegada y la hora de inicio.
-     * en caso de existir un retraso, habrá un mensaje que indique la hora de llegada.
+     * en caso de existir un retraso, se agregará a la lista de informacion de retrasos la persona junto a la hora a la que llegó.
      * @param horaLLegada hora a la que llegó el empleado.
      */
-    public void setLlegada(Instant horaLLegada){
+    public void Llegada(Instant horaLLegada){
         if(horaLLegada.isAfter(horaInicio)){
             informacionRetrasos.add(listaDeAsistencia.getLast().toString()+" llegó a las "+ horaLLegada);
         }
@@ -50,7 +50,7 @@ public class Asistencia {
 
     @Override
     public String toString() {
-        return "Asistencia: Contiene la lista de asistencia e informacion sobre los retrasos";
+        return "Asistencia: Regristro que contiene la lista de asistencia e informacion sobre los retrasos";
 
     }
 }

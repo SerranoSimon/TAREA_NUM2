@@ -26,7 +26,7 @@ public class Nota {
     }
 
     /**
-     * agrega una nota con su contenido y hora correspondiente.
+     * agrega una nota con su contenido y hora correspondiente al archivo.
      * @param texto se refiere al contenido de la nota
      * @param hora se refiere a la hora en la que se escribe la nota.
      */
