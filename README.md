@@ -7,8 +7,8 @@ Cambios en el UML:
      atributo.
    Sobre la Asistencia y Retrasos:
      La clase asistencia se encargará de manejar quien llega tarde con su metodo LLegada(Instant horaLLegada), como esta clase se crea en 
-     reunion, toma como parametro la hora de inicio y
-     la almacena como atributo y así clasifica quiénes llegan tarde.
+     reunion, toma como parametro la hora de inicio y la almacena como atributo y así clasifica quiénes llegan tarde. Eliminando así la 
+     clase Retraso.
      Creamos una interfaz asistible que implementa empleado e InvitadoExterno, esto les da la capacidad de asistir a una reunion a una 
      hora en particular.
    Sobre la invitación:
