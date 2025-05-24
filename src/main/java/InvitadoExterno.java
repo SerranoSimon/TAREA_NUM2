@@ -55,8 +55,8 @@ public class InvitadoExterno extends Persona implements Invitable,Asistible{
      */
     @Override
     public void invitar(Invitacion invitacion) {
-        boolean estaiInvitado=invitacion.getListaDeInvitados().stream().anyMatch(persona -> persona==this);
-        if(!estaiInvitado){
+        boolean estaInvitado=invitacion.getListaDeInvitados().stream().anyMatch(persona -> persona==this);
+        if(!estaInvitado){
             invitacion.getListaDeInvitados().add(this);
         }
     }
