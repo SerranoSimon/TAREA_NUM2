@@ -12,6 +12,9 @@ class ReunionTest {
 
     @Test
     void obtenerAsistencias() throws IOException, ReunionFinalizada, ReunionNoEmpieza {
+        /**
+         * Caso de uso normal
+         */
         Organizador o1 = new Organizador("101","Mora Muñoz","Pedro","pedromora@gmail.com");
         Empleado e1 = new Empleado("102","Chavez Hernandez","Carlos","carloschavez@gmail.com");
         Empleado e2 = new Empleado("103","Chavez Zapata","Maria","mariachavez@gmail.com");
@@ -30,7 +33,9 @@ class ReunionTest {
         listaEsperada.add(o1);
         listaEsperada.add(e2);
         listaEsperada.add(e1);
-
+    /**
+     * Caso donde nadie es invitado ni asiste
+     */
         Organizador o2 =new Organizador("201","Parra Olivarez","Lucas","lucasparra@gmail.com");
         Reunion r2 = new ReunionPresencial(tipoReunion.OTRO, LocalDate.now(),Instant.parse("2025-05-13T08:17:00Z"),26.0f,"A2",o2);
         r2.iniciar(Instant.parse("2025-05-13T08:17:00Z"));
@@ -45,6 +50,9 @@ class ReunionTest {
 
     @Test
     void obtenerInvitados() throws IOException {
+        /**
+         * Caso de uso normal
+         */
         Organizador o1 = new Organizador("101","Mora Muñoz","Pedro","pedromora@gmail.com");
         Empleado e1 = new Empleado("102","Chavez Hernandez","Carlos","carloschavez@gmail.com");
         Empleado e2 = new Empleado("103","Chavez Zapata","Maria","mariachavez@gmail.com");
@@ -59,7 +67,9 @@ class ReunionTest {
         listaEsperada.add(o1);
         listaEsperada.add(e1);
         listaEsperada.add(e2);
-
+    /**
+     * Caso donde nadie es invitado
+     */
         Organizador o2 =new Organizador("201","Parra Olivarez","Lucas","lucasparra@gmail.com");
         Reunion r2 = new ReunionPresencial(tipoReunion.OTRO, LocalDate.now(),Instant.parse("2025-05-13T08:17:00Z"),26.0f,"A2",o2);
         r2.iniciar(Instant.parse("2025-05-13T08:17:00Z"));
@@ -74,6 +84,9 @@ class ReunionTest {
 
     @Test
     void obtenerAusencias() throws IOException, ReunionFinalizada, ReunionNoEmpieza {
+        /**
+         * Caso de uso normal
+         */
         Organizador o1 = new Organizador("101","Mora Muñoz","Pedro","pedromora@gmail.com");
         Empleado e1 = new Empleado("102","Chavez Hernandez","Carlos","carloschavez@gmail.com");
         Empleado e2 = new Empleado("103","Chavez Zapata","Maria","mariachavez@gmail.com");
@@ -91,6 +104,9 @@ class ReunionTest {
         listaAusenciaEsperada.add(e2);
 
         assertEquals(listaAusenciaEsperada,r1.obtenerAusencias());
+        /**
+         * Caso donde nadie se ausenta
+         */
 
         Organizador o2 =new Organizador("201","Parra Olivarez","Lucas","lucasparra@gmail.com");
         Reunion r2 = new ReunionPresencial(tipoReunion.OTRO, LocalDate.now(),Instant.parse("2025-05-13T08:17:00Z"),26.0f,"A2",o2);
@@ -109,6 +125,9 @@ class ReunionTest {
 
     @Test
     void obtenerTotalAsistencia() throws IOException, ReunionFinalizada, ReunionNoEmpieza {
+        /**
+         * Caso de uso normal
+         */
         Organizador o1 = new Organizador("101","Mora Muñoz","Pedro","pedromora@gmail.com");
         Empleado e1 = new Empleado("102","Chavez Hernandez","Carlos","carloschavez@gmail.com");
         Empleado e2 = new Empleado("103","Chavez Zapata","Maria","mariachavez@gmail.com");
@@ -123,18 +142,24 @@ class ReunionTest {
         e2.asistir(r1,Instant.parse("2025-05-13T08:17:15Z"));
         e1.asistir(r1,Instant.parse("2025-05-13T08:17:20Z"));
         int esperado = 3;
-        assertEquals(3,r1.obtenerTotalAsistencia());
+        assertEquals(esperado,r1.obtenerTotalAsistencia());
+        /**
+         * Caso donde nadie es invitado ni asiste
+         */
         Organizador o2 =new Organizador("201","Parra Olivarez","Lucas","lucasparra@gmail.com");
         Reunion r2 = new ReunionPresencial(tipoReunion.OTRO, LocalDate.now(),Instant.parse("2025-05-13T08:17:00Z"),26.0f,"A2",o2);
         r2.iniciar(Instant.parse("2025-05-13T08:17:00Z"));
         r2.finalizar(Instant.parse("2025-05-14T10:17:00Z"));
-        float esperado1 = 0.0f;
+        int esperado1 = 0;
         assertEquals(esperado1,r2.obtenerTotalAsistencia());
 
     }
 
     @Test
     void obtenerPorcentajeAsistencia() throws IOException, ReunionFinalizada, ReunionNoEmpieza {
+        /**
+         * Caso de uso normal
+         */
         Organizador o1 = new Organizador("101","Mora Muñoz","Pedro","pedromora@gmail.com");
         Empleado e1 = new Empleado("102","Chavez Hernandez","Carlos","carloschavez@gmail.com");
         Empleado e3= new Empleado ("104","Parra Muñoz","Pablo","pablomuñoz@gmail.com");
@@ -153,7 +178,9 @@ class ReunionTest {
         r1.finalizar(Instant.parse("2025-05-13T09:47:00Z"));
         float esperado = 75.0f;
         assertEquals(esperado,r1.obtenerPorcentajeAsistencia());
-
+    /**
+     * Caso donde nadie es invitado ni asiste
+     */
         Organizador o2 =new Organizador("201","Parra Olivarez","Lucas","lucasparra@gmail.com");
         Reunion r2 = new ReunionPresencial(tipoReunion.OTRO, LocalDate.now(),Instant.parse("2025-05-13T08:17:00Z"),26.0f,"A2",o2);
         r2.iniciar(Instant.parse("2025-05-13T08:17:00Z"));
@@ -166,6 +193,9 @@ class ReunionTest {
 
     @Test
     void obtenerRetrasos() throws IOException, ReunionFinalizada, ReunionNoEmpieza {
+        /**
+         * Caso de uso normal
+         */
         Organizador o1 = new Organizador("101","Mora Muñoz","Pedro","pedromora@gmail.com");
         Empleado e1 = new Empleado("102","Chavez Hernandez","Carlos","carloschavez@gmail.com");
         Empleado e2 = new Empleado("103","Chavez Zapata","Maria","mariachavez@gmail.com");
@@ -185,6 +215,9 @@ class ReunionTest {
         listaRetrasoEsperada.add(e2+" llegó a las 2025-05-13T08:17:15Z");
         listaRetrasoEsperada.add(e1+" llegó a las 2025-05-13T08:17:20Z");
         assertEquals(listaRetrasoEsperada,r1.obtenerRetrasos());
+        /**
+         * Caso donde nadie se retrasa.
+         */
 
         Organizador o2 = new Organizador("201", "Parra Olivarez", "Lucas", "lucasparra@gmail.com");
         Empleado e3 = new Empleado("104", "Chavez Zapata", "Javier", "chavezzapata@gmail.com");
@@ -201,16 +234,25 @@ class ReunionTest {
 
     @Test
     void calcularTiempoReal() throws IOException {
+        /**
+         * caso de uso normal
+         */
         Organizador o1 = new Organizador("101","Mora Muñoz","Pedro","pedromora@gmail.com");
         Reunion r1 = new ReunionPresencial(tipoReunion.TECNICA, LocalDate.now(), Instant.parse("2025-05-13T08:17:00Z"),2.0f ,"A1",o1);
         r1.iniciar(Instant.parse("2025-05-13T23:00:00Z"));
         r1.finalizar(Instant.parse("2025-05-14T01:00:00Z"));
         float r1esperado = 2.0f;
+        /**
+         *  Caso donde una reunión dura más de un día
+         */
         Organizador o2 =new Organizador("201","Parra Olivarez","Lucas","lucasparra@gmail.com");
         Reunion r2 = new ReunionPresencial(tipoReunion.OTRO, LocalDate.now(),Instant.parse("2025-05-13T08:17:00Z"),26.0f,"A2",o2);
         r2.iniciar(Instant.parse("2025-05-13T08:17:00Z"));
         r2.finalizar(Instant.parse("2025-05-14T10:17:00Z"));
         float r2esperado = 26.0f;
+        /**
+         * caso donde una reunión dura menos de una hora.
+         */
         Organizador o3 = new Organizador("301","Ramirez Vidal","Emanuel","emanuelramirez@gmail.com");
         Reunion r3 = new ReunionVirtual(tipoReunion.MARKETING,LocalDate.now(),Instant.parse("2025-05-13T08:17:00Z"),0.45f,"meet.r3.com",o3);
         r3.iniciar(Instant.parse("2025-05-13T08:15:00Z"));

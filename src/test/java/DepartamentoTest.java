@@ -11,6 +11,9 @@ class DepartamentoTest {
 
     @Test
     void invitar() throws ReunionFinalizada, ReunionNoEmpieza, IOException {
+        /**
+         * caso de uso normal donde se presenta la capacidad para invitar un departamento completo.
+         */
         Organizador o1 = new Organizador("101","Mora Muñoz","Pedro","pedromora@gmail.com");
         Empleado e1 = new Empleado("102","Chavez Hernandez","Carlos","carloschavez@gmail.com");
         Empleado e2 = new Empleado("103","Chavez Zapata","Maria","mariachavez@gmail.com");
@@ -33,6 +36,9 @@ class DepartamentoTest {
 
     @Test
     void obtenerCantidadEmpleados() {
+        /**
+         * caso de uso normal
+         */
         Empleado e1 = new Empleado("102","Chavez Hernandez","Carlos","carloschavez@gmail.com");
         Empleado e2 = new Empleado("103","Chavez Zapata","Maria","mariachavez@gmail.com");
         Empleado e3= new Empleado ("104","Parra Muñoz","Pablo","pablomuñoz@gmail.com");
@@ -42,6 +48,9 @@ class DepartamentoTest {
         d2.addEmpleado(e3);
         int esperado = 3;
         assertEquals(esperado,d2.obtenerCantidadEmpleados());
+        /**
+         * caso donde se crea un departamento y no se agrega a ningún empleado
+         */
         Departamento d3 = new Departamento("Departamento D");
         int esperado1= 0;
         assertEquals(esperado1,d3.obtenerCantidadEmpleados());
