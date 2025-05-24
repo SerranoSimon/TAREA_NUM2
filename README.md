@@ -1,13 +1,16 @@
 Integrantes: Leandro Wladimir Placencia Alvarez, Simón Pablo Serrano Luarte.
 Cambios en el UML:
    Sobre Reunion:
-   - Cambio de Date por localDate que es de java.time, así usamos el mismo paquete para los tipos de datos temporales.
-   - duracionPrevista ahora es del tipo float y expresa tiempo en horas, es más entendible este tipo de dato que Duration.
-   - Como todas las reuniones deben tener un organizador, este será necesario como parametro para el constructor de reunion y será un atributo.
+     Cambio de Date por localDate que es de java.time, así usamos el mismo paquete para los tipos de datos temporales.
+     duracionPrevista ahora es del tipo float y expresa tiempo en horas, es más entendible este tipo de dato que Duration.
+     Como todas las reuniones deben tener un organizador, este será necesario como parametro para el constructor de reunion y será un 
+     atributo.
    Sobre la Asistencia y Retrasos:
-     La clase asistencia se encargará de manejar quien llega tarde con su metodo LLegada(Instant horaLLegada), como esta clase se crea en reunion, toma como parametro la hora de inicio y
+     La clase asistencia se encargará de manejar quien llega tarde con su metodo LLegada(Instant horaLLegada), como esta clase se crea en 
+     reunion, toma como parametro la hora de inicio y
      la almacena como atributo y así clasifica quiénes llegan tarde.
-     Creamos una interfaz asistible que implementa empleado e InvitadoExterno, esto les da la capacidad de asistir a una reunion a una hora en particular.
+     Creamos una interfaz asistible que implementa empleado e InvitadoExterno, esto les da la capacidad de asistir a una reunion a una 
+     hora en particular.
    Sobre la invitación:
      Añadimos como atributos  de Invitacion algunos atributos de reunion, los cuales se les pasa en el constructor de reunion a 
       invitacion.
