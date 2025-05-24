@@ -7,7 +7,7 @@ Cambios en el UML:
    Sobre la Asistencia y Retrasos:
     - La clase asistencia se encargará de manejar quien llega tarde con su metodo LLegada(Instant horaLLegada), como esta clase se crea en reunion, toma como parametro la hora de inicio y
      la almacena como atributo y así clasifica quiénes llegan tarde.
-    - Creamos una interfaz <<asistible>> que implementa empleado e InvitadoExterno, esto les da la capacidad de asistir a una reunion a una hora en particular.
+    - Creamos una interfaz asistible que implementa empleado e InvitadoExterno, esto les da la capacidad de asistir a una reunion a una hora en particular.
    Sobre la invitación:
    - Añadimos como atributos  de Invitacion algunos atributos de reunion, los cuales se les pasa en el constructor de reunion a invitacion.
      Esto debido a que, al momento de hacer ToString a invitacion, encontramos que una invitacion debería señalar estos aspectos de una reunion.
@@ -16,6 +16,6 @@ Cambios en el UML:
     - Creamos una nueva clase organizador que hereda de empleado y tiene la capacidad, a diferencia de los otros asistentes, de escribir una nota.
    Sobre invitado Externo y Persona:
    - para poder invitar a externos, es decir, no empleados, creamos una clase persona de la cual hereda empleado e invitado externo y así los arraylist que almacenan asistentes, ausentes e
-     invitados son del tipo <Persona>.
+     invitados son del tipo Persona.
  
 
